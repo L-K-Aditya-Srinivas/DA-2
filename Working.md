@@ -1,13 +1,10 @@
-•	Import Libraries: We import necessary libraries for text processing, data manipulation, and building the neural network.
-•	Hyperparameters: Define hyperparameters like maximum sequence length, vocabulary size, embedding dimension, and LSTM units.
-•	Data Preparation: This section (not shown) would involve loading your text data (reviews), cleaning it (removing punctuation, stop words), and converting them into numerical sequences using tokenization.
-•	Tokenizer: We create a Tokenizer object that learns a vocabulary of the most frequent words (up to vocab_size). It then converts text reviews into sequences of integer indices corresponding to the words in the vocabulary.
-•	Padding: We pad sequences to a fixed length (max_len) using pad_sequences to ensure consistent input for the model.
-•	Labels: We define labels (0 for negative, 1 for positive) based on the sentiment of each review.
-•	Model Definition:
-  o	Embedding layer converts words into numerical representations (embeddings).
-  o	LSTM layer captures long-term dependencies in the sequence to understand sentiment.
-  o	Dense layer with sigmoid activation predicts the probability of a positive sentiment (between 0 and 1).
-•	Model Compilation: We choose binary crossentropy loss for binary classification (positive or negative) and the Adam optimizer for training.
-•	Model Training: We train the model on the prepared sequences and labels for a specific number of epochs (iterations). A validation split helps monitor performance on unseen data during training.
-•	Model Evaluation: We evaluate the model's accuracy on a separate test set to assess its generalizability.
+•	Import libraries: We import necessary libraries from Keras. 
+•	Hyperparameters: Define hyperparameters like sequence length, embedding dimension, and LSTM units.
+•	Data Preparation: This section would involve cleaning and preparing your text data for the model. 
+•	Model Definition: 
+  o	Embedding layer converts words into numerical representations (embeddings). 
+  o	Two LSTM layers with return_sequences=True in the first layer allow learning longer dependencies in the text. 
+  o	Dense layer with softmax activation predicts the probability of the next word in the sequence. 
+•	Model Compilation: We choose the categorical crossentropy loss function for multi-class classification and the Adam optimizer for training. 
+•	Model Training: This section would involve training the model on your prepared data. 
+•	Text Generation: This section would use the trained model to generate new text sequences by feeding it a starting sequence and predicting the next words based on the model's learned patterns.
